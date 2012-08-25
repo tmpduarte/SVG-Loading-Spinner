@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Loading Spinner Example</title>
+
+        <!-- CSS -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="bootstrap/css/docs.css" rel="stylesheet">
+        <link href="spinner/spinner.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">Spinner Library</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <section>
+                    <div class="page-header">
+                        <h1>What is it</h1>
+                    </div>
+                    <p class="lead">The Spinner Library is a javascript library, well is more a component, that you can
+                        use in your web pages when you have loading times and you need to give some visual feedback to
+                        the user. It was developed in the scope of a <a href="https://centralway.com/en" target="_blank">Centralway</a>
+                        project.<br/>
+                        <a id="createSpinner" href="">Unleash</a> the power of the loading spinner.
+                    </p>
+                    <p>Note that in this particular case a timeout is set so that the spinner goes away after 3 seconds.</p>
+                </section>
+
+                <section>
+                    <div class="page-header">
+                        <h1>How to use</h1>
+                    </div>
+                    <p class="lead">Follow this instructions every time you want to have a spinner on your web page:</p>
+                    <pre class="prettyprint linenums">
+                        <ol class="linenums"><li>Add the spinner folder to your project.</li>
+                            <li>Add the JQuery and Raphael Libraries to your project and link it in your web page.</li>
+                            <li>Link the spinner css file in your web page <span class="tag">&lt;link href="spinner/spinner.css" rel="stylesheet"&gt;</span></li>
+                            <li>Link the spinner js file in your web page <span class="tag">&lt;script src="spinner/spinner.js" type="text/javascript"&gt;&lt;/script&gt;</span></li>
+                            <li>Add the following code to your web page:
+                                &lt;div id="spinnerFullScreen"&gt;
+                                    &lt;div id="floater"&gt;
+                                        &lt;div id="spinner"&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;</li>
+                            <li>When you want to call the spinner just call createSpinner("spinner", 70, 120, 12, 25, "white"); with the appropriate parameters (explicar os parametros).</li>
+                            <li>When you want to close the spinner just call deleteSpinner();</li>
+                        </ol>
+                </section>
+
+                <section>
+                    <div class="page-header">
+                        <h1>Known Limitations</h1>
+                    </div>
+                    <p class="lead">Doesn't work very well with IE, sorry.</p>
+                </section>
+
+                <section>
+                    <div class="page-header">
+                        <h1>Thanks To</h1>
+                    </div>
+                    <p class="lead">Many thanks to the creators of <a href="http://jquery.com/" target="_blank">JQuery</a>,
+                        <a href="http://raphaeljs.com/" target="_blank">RaphaelJS</a> and
+                        <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>.</p>
+                </section>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p>Developed by <a href="mailto:tmpduarte@gmail.com">Tiago Duarte</a></p>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/tmpduarte/SVG-Loading-Spinner/issues?state=open" target="_blank">Submit issues</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <!-- SPINNER -->
+        <div id="spinnerFullScreen">
+            <div id="floater">
+                <div id="spinner"></div>
+            </div>
+        </div>
+
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="raphael-min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="spinner/spinner.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
+    </body>
+</html>
