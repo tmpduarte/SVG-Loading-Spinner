@@ -9,16 +9,20 @@ Instructions to use:
 
 2. Add the <a href="http://docs.jquery.com/Downloading_jQuery" target="_blank">JQuery</a> and <a href="https://raw.github.com/DmitryBaranovskiy/raphael/master/raphael-min.js" target="_blank">Raphael</a> Libraries to your project and link it in your web page.
 
-3. Link the spinner css file in your web page <link href="spinner/spinner.css" rel="stylesheet">
+3. Link the spinner css file in your web page
 
-4. Link the spinner js file in your web page <script src="spinner/spinner.js" type="text/javascript"></script>
+                                &lt;link href="spinner/spinner.css" rel="stylesheet"&gt;
+
+4. Link the spinner js file in your web page
+
+                                &lt;script src="spinner/spinner.js" type="text/javascript"&gt;&lt;/script&gt;
 
 5. Add the following code to your web page:
-                                <div id="spinnerFullScreen">
-                                    <div id="floater">
-                                        <div id="spinner"></div>
-                                    </div>
-                                </div>
+                                &lt;div id="spinnerFullScreen"&gt;
+                                    &lt;div id="floater"&gt;
+                                        &lt;div id="spinner"&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
 
 6. When you want to show the spinner just create the spinner object:
 
@@ -37,11 +41,13 @@ Note that you can change the aspect of the spinner passing some parameters on th
                                 data.sectorWidth = 15;
 
                                 data.color = 'red';
-                                
+
                                 data.fullScreenOpacity = 0.8;
 
 and call the create method on the spinner object:
                                     spinner.create();
 
 
-7. When you want to close the spinner destroy method on the object spinner.destroy();
+7. When you want to close the spinner destroy method on the object
+
+                                spinner.destroy();
