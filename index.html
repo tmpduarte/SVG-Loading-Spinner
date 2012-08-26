@@ -43,7 +43,7 @@
                     <p class="lead">Follow this instructions every time you want to have a spinner on your web page:</p>
                     <pre class="prettyprint linenums">
                         <ol class="linenums"><li>Add the spinner folder to your project.</li>
-                            <li>Add the JQuery and Raphael Libraries to your project and link it in your web page.</li>
+                            <li>Add the <a href="http://docs.jquery.com/Downloading_jQuery" target="_blank">JQuery</a> and <a href="https://raw.github.com/DmitryBaranovskiy/raphael/master/raphael-min.js" target="_blank">Raphael</a> Libraries to your project and link it in your web page.</li>
                             <li>Link the spinner css file in your web page <span class="tag">&lt;link href="spinner/spinner.css" rel="stylesheet"&gt;</span></li>
                             <li>Link the spinner js file in your web page <span class="tag">&lt;script src="spinner/spinner.js" type="text/javascript"&gt;&lt;/script&gt;</span></li>
                             <li>Add the following code to your web page:
@@ -52,8 +52,20 @@
                                         &lt;div id="spinner"&gt;&lt;/div&gt;
                                     &lt;/div&gt;
                                 &lt;/div&gt;</li>
-                            <li>When you want to call the spinner just call createSpinner("spinner", 70, 120, 12, 25, "white"); with the appropriate parameters (explicar os parametros).</li>
-                            <li>When you want to close the spinner just call deleteSpinner();</li>
+                            <li>When you want to show the spinner just create the spinner object:
+                                    var spinner = new Spinner(data);
+Note that you can change the aspect of the spinner passing some parameters on the data variable like:
+                                var data = {};
+                                data.centerRadius = 35;
+                                data.sectorLength = 50;
+                                data.sectorsCount = 10;
+                                data.sectorWidth = 15;
+                                data.color = 'red';
+                                data.fullScreenOpacity = 0.8;
+
+and call the create method on the spinner object:
+                                    spinner.create();</li>
+                            <li>When you want to close the spinner destroy method on the object spinner.destroy();</li>
                         </ol>
                 </section>
 
