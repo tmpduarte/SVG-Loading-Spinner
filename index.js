@@ -13,8 +13,8 @@ function unleashSpinner() {
 
     var spinner = new Spinner(data);
 
-    setTimeout(spinner.destroy, 3000);
     spinner.create();
+    setTimeout(function(){spinner.destroy();}, 3000);
 
     return false;
 }

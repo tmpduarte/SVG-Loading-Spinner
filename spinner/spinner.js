@@ -57,6 +57,8 @@ Spinner.prototype.create = function() {
 
         //safari browser helper
         spinnerObject.spinnerObject.safari();
+
+        //doesn't work on IE passing parameter with the settimeout function :(
         spinnerObject.spinnerTick = setTimeout(ticker, 1000 / spinnerObject.sectorsCount, spinnerObject);
 
     })(this);
