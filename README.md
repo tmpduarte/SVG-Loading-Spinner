@@ -7,7 +7,7 @@ Instructions to use:
 
 1. Add the spinner folder to your project.
 
-2. Add the JQuery and Raphael Libraries to your project and link it in your web page.
+2. Add the <a href="http://docs.jquery.com/Downloading_jQuery" target="_blank">JQuery</a> and <a href="https://raw.github.com/DmitryBaranovskiy/raphael/master/raphael-min.js" target="_blank">Raphael</a> Libraries to your project and link it in your web page.
 
 3. Link the spinner css file in your web page <link href="spinner/spinner.css" rel="stylesheet">
 
