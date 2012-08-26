@@ -32,17 +32,11 @@ Instructions to use:
     Note that you can change the aspect of the spinner passing some parameters on the data variable like:
 
                                 var data = {};
-
                                 data.centerRadius = 35;
-
                                 data.sectorLength = 50;
-
                                 data.sectorsCount = 10;
-
                                 data.sectorWidth = 15;
-
                                 data.color = 'red';
-
                                 data.fullScreenOpacity = 0.8;
 
     and call the create method on the spinner object:
