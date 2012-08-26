@@ -18,6 +18,7 @@ Instructions to use:
                                 <script src="spinner/spinner.js" type="text/javascript"></script>
 
 5. Add the following code to your web page:
+
                                 <div id="spinnerFullScreen">
                                     <div id="floater">
                                         <div id="spinner"></div>
