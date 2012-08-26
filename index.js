@@ -9,7 +9,8 @@ function unleashSpinner() {
     data.sectorLength = 50;
     data.sectorsCount = 10;
     data.sectorWidth = 15;
-    data.color = 'white';
+    data.color = 'red';
+    data.fullScreenOpacity = 0.8;
 
     var spinner = new Spinner(data);
 

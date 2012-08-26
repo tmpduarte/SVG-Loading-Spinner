@@ -25,6 +25,9 @@ function Spinner(data) {
     //color of the spinner - default = white
     this.color = data.color || 'white';
 
+    //the opacity of the fullScreen
+    this.fullScreenOpacity = data.fullScreenOpacity;
+
     //array of spinner sectors, each spinner is a svg path
     this.sectors = [];
 
@@ -47,7 +50,7 @@ Spinner.prototype.create = function() {
 
     //animates the opacity of the full screen div containing the spinner from 0 to 0.8
     $('#spinnerFullScreen').animate({
-        opacity: 0.8
+        opacity: this.fullScreenOpacity
     }, 1000, function() {
     });
 
