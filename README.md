@@ -28,7 +28,7 @@ Instructions to use:
 
                                     var spinner = new Spinner(data);
 
-Note that you can change the aspect of the spinner passing some parameters on the data variable like:
+    Note that you can change the aspect of the spinner passing some parameters on the data variable like:
 
                                 var data = {};
 
@@ -44,7 +44,7 @@ Note that you can change the aspect of the spinner passing some parameters on th
 
                                 data.fullScreenOpacity = 0.8;
 
-and call the create method on the spinner object:
+    and call the create method on the spinner object:
                                     spinner.create();
 
 
