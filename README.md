@@ -56,6 +56,6 @@ Instructions to use:
                                 spinner.create();
 
 
-7. When you want to close the spinner destroy method on the object
+7. When you want to close the spinner call the destroy method on the object
 
                                 spinner.destroy();
