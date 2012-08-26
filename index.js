@@ -4,8 +4,18 @@ $(document).ready(function() {
 
 
 function unleashSpinner() {
-    setTimeout(deleteSpinner, 3000);
-    createSpinner("spinner", 70, 120, 12, 25, "white");
+    var data = {};
+    data.R1 = 70;
+    data.R2 = 120;
+    data.sectorsCount = 12;
+    data.width = 25;
+    data.color = 'white';
+
+    var spinner = new Spinner(data);
+
+    setTimeout(spinner.destroy, 3000);
+    spinner.create();
+
     return false;
 }
 

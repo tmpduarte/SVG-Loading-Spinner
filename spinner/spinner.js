@@ -2,62 +2,75 @@
  * @Author: Tiago Duarte
  * @Date: 25-08-2012
  */
+function Spinner(data) {
+    this.R1 = data.R1 || 70;
+    this.R2 = data.R2 || 120;
+    this.sectorsCount = data.sectorsCount || 12;
+    this.width = data.width || 25;
+    this.color = data.color || 'white';
 
-//loading variables
-var spinnerTick, spinner, slideDuration = 1000;
+    this.sectors = [];
+    this.opacity = [];
 
-/**************************************************/
-/****************SPINNER FUNCTIONS*****************/
-/**************************************************/
+    //the raphael spinner object
+    this.spinnerObject = null;
 
-    //creates the loading
-function createSpinner(holderid, R1, R2, sectorsCount, width, color) {
+    //id of the timeout function for the rotating animation
+    this.spinnerTick = null;
+}
+
+Spinner.prototype.create = function() {
     //shows the full screen spinner div
     $('#spinnerFullScreen').show();
     $('#spinnerFullScreen').animate({
         opacity: 0.8
-    }, slideDuration, function() {
+    }, 1000, function() {
     });
 
-    var r1 = Math.min(R1, R2) || 35, r2 = Math.max(R1, R2) || 60, cx = r2 + width, cy = r2 + width, sectors = [], opacity = [], beta = 2 * Math.PI / sectorsCount, pathParams = {stroke: color, "stroke-width": width, "stroke-linecap": "round"};
+    var r1 = Math.min(this.R1, this.R2) || 35;
+    var r2 = Math.max(this.R1, this.R2) || 60;
+    var cx = r2 + this.width, cy = r2 + this.width;
+    var beta = 2 * Math.PI / this.sectorsCount;
+    var pathParams = {stroke: this.color, "stroke-width": this.width, "stroke-linecap": "round"};
 
-    spinner = Raphael(holderid, r2 * 2 + width * 2, r2 * 2 + width * 2);
+    this.spinnerObject = Raphael('spinner', r2 * 2 + this.width * 2, r2 * 2 + this.width * 2);
 
-    for (var i = 0; i < sectorsCount; i++) {
-        var alpha = beta * i - Math.PI / 2, cos = Math.cos(alpha), sin = Math.sin(alpha);
+    for (var i = 0; i < this.sectorsCount; i++) {
+        var alpha = beta * i - Math.PI / 2;
+        var cos = Math.cos(alpha);
+        var sin = Math.sin(alpha);
 
-        opacity[i] = 1 / sectorsCount * i;
-        sectors[i] = spinner.path([
+        this.opacity[i] = 1 / this.sectorsCount * i;
+        this.sectors[i] = this.spinnerObject.path([
             ["M", cx + r1 * cos, cy + r1 * sin],
             ["L", cx + r2 * cos, cy + r2 * sin]
         ]).attr(pathParams);
     }
 
-    (function ticker() {
-        opacity.unshift(opacity.pop());
+    //animation self-called function
+    (function ticker(spinnerObject) {
+        spinnerObject.opacity.unshift(spinnerObject.opacity.pop());
 
-        for (var i = 0; i < sectorsCount; i++) {
-            sectors[i].attr("opacity", opacity[i]);
+        for (var i = 0; i < spinnerObject.sectorsCount; i++) {
+            spinnerObject.sectors[i].attr("opacity", spinnerObject.opacity[i]);
         }
 
         //safari browser helper
-        spinner.safari();
-        spinnerTick = setTimeout(ticker, 1000 / sectorsCount);
-    })();
-}
+        spinnerObject.spinnerObject.safari();
+        spinnerObject.spinnerTick = setTimeout(ticker, 1000 / spinnerObject.sectorsCount, spinnerObject);
 
-//disables the ticker and removes the clock
-function deleteSpinner() {
-    clearTimeout(spinnerTick);
-    spinner.remove();
+    })(this);
+};
+
+Spinner.prototype.destroy = function() {
+    clearTimeout(this.spinnerTick);
+    this.spinnerObject.remove();
+    this.spinnerObject = null;
 
     //hides the full screen div
     $('#spinnerFullScreen').animate({
         opacity: 0
     }, 2000, function() {
         $('#spinnerFullScreen').hide();
-
     });
-
-}
-
+};
