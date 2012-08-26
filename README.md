@@ -32,15 +32,22 @@ Instructions to use:
     Note that you can change the aspect of the spinner passing some parameters on the data variable like:
 
                                 var data = {};
+                                //distance from each sector to the center of the spinner
                                 data.centerRadius = 35;
+                                //length of each sector in the spinner
                                 data.sectorLength = 50;
+                                //number of sectors of the spinner
                                 data.sectorsCount = 10;
+                                //width or stroke size of each spinner sector
                                 data.sectorWidth = 15;
+                                //color of the spinner
                                 data.color = 'red';
+                                //opacity of the full screen layer
                                 data.fullScreenOpacity = 0.8;
 
     and call the create method on the spinner object:
-                                    spinner.create();
+
+                                spinner.create();
 
 
 7. When you want to close the spinner destroy method on the object
