@@ -5,9 +5,9 @@ $(document).ready(function() {
 
 function unleashSpinner() {
     var data = {};
-    data.R1 = 35;
-    data.R2 = 60;
-    data.sectorsCount = 12;
+    data.centerRadius = 35;
+    data.sectorLength = 50;
+    data.sectorsCount = 10;
     data.sectorWidth = 15;
     data.color = 'white';
 

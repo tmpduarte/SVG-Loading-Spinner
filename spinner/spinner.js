@@ -9,11 +9,15 @@
  * @constructor
  */
 function Spinner(data) {
-    this.R1 = data.R1 || 70;
-    this.R2 = data.R2 || 120;
 
     //number of sectors of the spinner - default = 12
     this.sectorsCount = data.sectorsCount || 12;
+
+    //the distance from each sector to the center - default = 70
+    this.centerRadius = data.centerRadius || 70;
+
+    //the length/height of each sector - default = 120
+    this.sectorLength = data.sectorLength || 120;
 
     //the width of each sector of the spinner - default = 25
     this.sectorWidth = data.sectorWidth || 25;
@@ -47,14 +51,8 @@ Spinner.prototype.create = function() {
     }, 1000, function() {
     });
 
-    //var r1 = Math.min(this.R1, this.R2) || 35;
-    //var r2 = Math.max(this.R1, this.R2) || 60;
-
-    var r1 = 25;
-    var r2 = 60;
-
-    var cx = r2 + this.sectorWidth;
-    var cy = r2 + this.sectorWidth;
+    //center point of the canvas/spinner/raphael object
+    var spinnerCenter = this.centerRadius + this.sectorLength + this.sectorWidth;
 
     //angle difference/step between each sector
     var beta = 2 * Math.PI / this.sectorsCount;
@@ -67,22 +65,34 @@ Spinner.prototype.create = function() {
     };
 
     /**
-     * creates the Raphael object with a width and a height equals to
+     * creates the Raphael object with a width and a height equals to the double of the sum
      * on the element with id="spinner" that we can use to create and display svg elements
      *
      */
-    var paperSize = r2 * 2 + this.sectorWidth * 2;
+    var paperSize = 2 * spinnerCenter;
     this.spinnerObject = Raphael('spinner', paperSize, paperSize);
 
+    //builds the sectors and the respective opacity
     for (var i = 0; i < this.sectorsCount; i++) {
-        var alpha = beta * i - Math.PI / 2;
+
+        //angle of the current sector
+        var alpha = beta * i;
         var cos = Math.cos(alpha);
         var sin = Math.sin(alpha);
 
+        //each sector
         this.opacity[i] = 1 / this.sectorsCount * i;
+
+        /**
+         * builds each sector, which in reality is a svg path
+         * note that Upper case letter mean command is absolute, lower case—relative to the current position.
+         * (http://www.w3.org/TR/SVG/paths.html#PathData)
+         * we move the "cursor" to the center plus the difference to the center
+         * and draws a line with length = sectorLength to the final point (which takes into account the current drawing angle)
+         */
         this.sectors[i] = this.spinnerObject.path([
-            ["M", cx + r1 * cos, cy + r1 * sin],
-            ["L", cx + r2 * cos, cy + r2 * sin]
+            ["M", spinnerCenter + this.centerRadius * cos, spinnerCenter + this.centerRadius * sin],
+            ["l", this.sectorLength * cos, this.sectorLength * sin]
         ]).attr(pathParams);
     }
 
@@ -110,6 +120,8 @@ Spinner.prototype.create = function() {
 
         /**
          * calls the animation step again
+         * it's called in each second, the number of sectors the spinner has.
+         * So the spinner gives a round each second, independently the numeber of sectors it has
          * note: doesn't work on IE passing parameter with the settimeout function :(
          */
         spinnerObject.spinnerTick = setTimeout(animationStep, 1000 / spinnerObject.sectorsCount, spinnerObject);
