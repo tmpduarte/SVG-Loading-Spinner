@@ -5,10 +5,10 @@ $(document).ready(function() {
 
 function unleashSpinner() {
     var data = {};
-    data.R1 = 70;
-    data.R2 = 120;
+    data.R1 = 35;
+    data.R2 = 60;
     data.sectorsCount = 12;
-    data.width = 25;
+    data.sectorWidth = 15;
     data.color = 'white';
 
     var spinner = new Spinner(data);
