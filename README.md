@@ -11,18 +11,18 @@ Instructions to use:
 
 3. Link the spinner css file in your web page
 
-                                &lt;link href="spinner/spinner.css" rel="stylesheet"&gt;
+                                <link href="spinner/spinner.css" rel="stylesheet">
 
 4. Link the spinner js file in your web page
 
-                                &lt;script src="spinner/spinner.js" type="text/javascript"&gt;&lt;/script&gt;
+                                <script src="spinner/spinner.js" type="text/javascript"></script>
 
 5. Add the following code to your web page:
-                                &lt;div id="spinnerFullScreen"&gt;
-                                    &lt;div id="floater"&gt;
-                                        &lt;div id="spinner"&gt;&lt;/div&gt;
-                                    &lt;/div&gt;
-                                &lt;/div&gt;
+                                <div id="spinnerFullScreen">
+                                    <div id="floater">
+                                        <div id="spinner"></div>
+                                    </div>
+                                </div>
 
 6. When you want to show the spinner just create the spinner object:
 
