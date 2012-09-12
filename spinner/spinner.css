@@ -7,7 +7,7 @@
     left: 0px;
     background-color: black;
     opacity: 0;
-    z-index: 9999999;
+    z-index: 9999998;
 }
 
 #floater {
@@ -20,5 +20,5 @@
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-    z-index:9999998;
+    z-index:9999999;
 }
