@@ -83,14 +83,14 @@ Spinner.prototype.create = function() {
         var cos = Math.cos(alpha);
         var sin = Math.sin(alpha);
 
-        //each sector
+        //opacity of the current sector
         this.opacity[i] = 1 / this.sectorsCount * i;
 
         /**
          * builds each sector, which in reality is a svg path
          * note that Upper case letter mean command is absolute, lower case—relative to the current position.
          * (http://www.w3.org/TR/SVG/paths.html#PathData)
-         * we move the "cursor" to the center plus the difference to the center
+         * we move the "cursor" to the center of the spinner and add the centerRadius to center to move to the beginning of each sector 
          * and draws a line with length = sectorLength to the final point (which takes into account the current drawing angle)
          */
         this.sectors[i] = this.spinnerObject.path([
@@ -124,7 +124,7 @@ Spinner.prototype.create = function() {
         /**
          * calls the animation step again
          * it's called in each second, the number of sectors the spinner has.
-         * So the spinner gives a round each second, independently the numeber of sectors it has
+         * So the spinner gives a round each second, independently the number of sectors it has
          * note: doesn't work on IE passing parameter with the settimeout function :(
          */
         spinnerObject.spinnerTick = setTimeout(animationStep, 1000 / spinnerObject.sectorsCount, spinnerObject);
